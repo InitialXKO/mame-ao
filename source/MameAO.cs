@@ -210,8 +210,8 @@ namespace Spludlow.MameAO
 			//
 
 			// Machine ROM
-			ArchiveOrgItem externalRom=new ArchiveOrgItem("mame-merged", null, null);
-			externalRom.UrlDownload="https://mdk.cab/download/split";
+			ArchiveOrgItem externalRom=new ArchiveOrgItem("mame-merged", "split/", null);
+			externalRom.UrlDownload="https://mdk.cab/download";
 			Globals.ArchiveOrgItems.Add(ItemType.MachineRom, new ArchiveOrgItem[] {
 				externalRom,
 			});
