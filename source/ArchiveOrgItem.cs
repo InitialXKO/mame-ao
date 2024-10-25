@@ -244,7 +244,7 @@ namespace Spludlow.MameAO
 				string name = (string)file.name;
 				string extention = Path.GetExtension(name);
 
-				if ((SubDirectory == null || name.StartsWith(SubDirectory) == true) && (AcceptedExtentions.Contains(extention) == true || name == "_manifest-sha1.txt"))
+				if ((SubDirectory == null || name.StartsWith(SubDirectory) == true) && (AcceptedExtentions.Contains(extention) == true || name == "_manifest-sha1.txt") ||UrlDownload.StartsWith("https://mdk.cab/download"))
 				{
 					if (SubDirectory != null)
 						name = name.Substring(SubDirectory.Length);
