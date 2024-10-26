@@ -218,6 +218,8 @@ namespace Spludlow.MameAO
 
 		public string DownloadLink(ArchiveOrgFile file)
 		{
+			if(UrlDownload.StartsWith("https://mdk.cab/download"))
+				return $"{UrlDownload}/{file.name.Substring(0, file.name.Length - Path.GetExtension(file.name).Length)}";
 			return $"{UrlDownload}/{file.name}";
 		}
 
@@ -244,7 +246,7 @@ namespace Spludlow.MameAO
 				string name = (string)file.name;
 				string extention = Path.GetExtension(name);
 
-				if ((SubDirectory == null || name.StartsWith(SubDirectory) == true) && (AcceptedExtentions.Contains(extention) == true || name == "_manifest-sha1.txt") ||UrlDownload.StartsWith("https://mdk.cab/download"))
+				if ((SubDirectory == null || name.StartsWith(SubDirectory) == true) && (AcceptedExtentions.Contains(extention) == true || name == "_manifest-sha1.txt"))
 				{
 					if (SubDirectory != null)
 						name = name.Substring(SubDirectory.Length);
