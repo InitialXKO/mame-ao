@@ -90,10 +90,11 @@ jobs:
       id: create_release
       uses: actions/create-release@v1
       env:
+        Configuration: ${{ matrix.configuration }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        release_name: $env:Configuration ${{ github.ref }}
         draft: false
         prerelease: false
     - name: Upload Release Asset
